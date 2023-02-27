@@ -1,17 +1,20 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "init",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
+  "plugins": ["@nx-dotnet/core"],
+  "npmScope": "stevehatherley-homework",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/.eslintrc.json"
+    ],
+    "sharedGlobals": []
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "codegen", "^codegen"],
       "inputs": ["production", "^production"]
     },
     "test": {
@@ -28,16 +31,20 @@
       ]
     }
   },
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/.eslintrc.json"
-    ],
-    "sharedGlobals": []
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "codegen",
+          "swagger"
+        ]
+      }
+    }
   },
   "generators": {
     "@nrwl/angular:application": {
@@ -52,6 +59,17 @@
     },
     "@nrwl/angular:component": {
       "style": "css"
+    },
+    "@nx-dotnet/core:app": {
+      "language": "C#",
+      "tags": "type:api",
+      "template": "webapi",
+      "testTemplate": "xunit"
+    },
+    "@nx-dotnet/core:lib": {
+      "language": "C#",
+      "template": "classlib",
+      "testTemplate": "xunit"
     }
   }
 }
