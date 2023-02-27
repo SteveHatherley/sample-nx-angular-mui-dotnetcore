@@ -1,3 +1,5 @@
 {
-  "nugetPackages": {}
+  "nugetPackages": {
+    "EntityFramework": "6"
+  }
 }
