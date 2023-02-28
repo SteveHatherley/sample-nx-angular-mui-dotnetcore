@@ -1,5 +1,7 @@
 {
   "nugetPackages": {
-    "EntityFramework": "6"
+    "Microsoft.EntityFrameworkCore": "6",
+    "Npgsql.EntityFrameworkCore.PostgreSQL": "6",
+    "Microsoft.EntityFrameworkCore.Design": "6"
   }
 }
