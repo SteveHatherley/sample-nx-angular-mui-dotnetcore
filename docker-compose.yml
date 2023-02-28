@@ -1,0 +1,31 @@
+version: "3.1"
+services:  
+  # frontend:
+    # todo from node:latest
+  # api:
+    # todo
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - homework
+  # Tried to use image for MSSQL 2022, but ancient linux workstation having trouble;
+  # opted for postgres for brevity; 
+  # mssql_db:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   ports:
+  #     - "1433:1433"
+  #   restart: always
+  #   networks:
+  #     - default
+  #   environment:
+  #     SA_PASSWORD: "S3cur3P4ssw0rd!"
+  #     ACCEPT_YEULA: "Y"
+networks:
+  homework:
