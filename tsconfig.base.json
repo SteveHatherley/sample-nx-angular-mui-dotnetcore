@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@stevehatherley-homework/generated/api-types": ["libs/generated/api-types/src/index.ts"]
+      "@stevehatherley-homework/generated/api-types": [
+        "libs/generated/api-types/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

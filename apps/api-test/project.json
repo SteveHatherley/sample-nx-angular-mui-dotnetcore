@@ -26,6 +26,17 @@
     },
     "lint": {
       "executor": "@nx-dotnet/core:format"
+    },
+    "serve": {
+      "executor": "@nx-dotnet/core:serve",
+      "options": {
+        "configuration": "Debug"
+      },
+      "configurations": {
+        "production": {
+          "configuration": "Release"
+        }
+      }
     }
   },
   "tags": []

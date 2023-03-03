@@ -19,6 +19,7 @@
     "@angular/router": "~15.1.0",
     "@nrwl/angular": "^15.7.2",
     "@nrwl/node": "^15.7.2",
+    "date-fns": "^2.29.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -42,7 +43,7 @@
     "@nx-dotnet/core": "^1.19.1",
     "@schematics/angular": "~15.1.0",
     "@types/jest": "28.1.1",
-    "@types/node": "16.11.7",
+    "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "cypress": "^12.2.0",
